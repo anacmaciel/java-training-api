@@ -30,5 +30,13 @@ public class UserController {
         return ResponseEntity.ok(userService.get(cpf));
     }
 
+@PutMapping(path = "/{id}")
+    public ResponseEntity<User> updateUser(@RequestBody @Valid User user, @PathVariable Long id) {
+        return ResponseEntity.ok(userService.update(user, id));
+}
 
+@DeleteMapping(path = "/{id}")
+public void deleteUser(@PathVariable Long id) {
+        userService.delete(id);
+}
 }

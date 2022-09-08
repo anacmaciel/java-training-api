@@ -23,9 +23,8 @@ public class UserService {
 
     public User update(User user, Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
+        User userEncontrado = optionalUser.get();
         if (optionalUser.isPresent()) {
-
-            User userEncontrado = optionalUser.get();
             String nomeInformado = user.getName();
             userEncontrado.setName(nomeInformado);
             String cpfInformado = user.getCpf();

@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 
 import br.com.training.model.User;
 
+import java.util.List;
+
 @RestController
 @RestControllerAdvice
 @RequestMapping("/users")
@@ -38,4 +40,9 @@ public class UserController {
 public void deleteUser(@PathVariable Long id) {
         userService.delete(id);
 }
+
+public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAll());
 }
+}
+
